@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Core" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 2085.0
+margin_bottom = 1264.0

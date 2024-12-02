@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/PlaymegamesReguler-2OOee.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://FailedMenu.gd" type="Script" id=2]
+[ext_resource path="res://world/GrassBackground.png" type="Texture" id=3]
+[ext_resource path="res://sounds/mixkit-game-over-dark-orchestra-633.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0313726, 0.627451, 0.137255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0901961, 0.556863, 0.0235294, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 962.5, 540.5 )
+scale = Vector2( 30.0469, 16.7656 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="BG"]
+margin_left = -37.7577
+margin_top = -26.274
+margin_right = 39.2423
+margin_bottom = 4.72596
+custom_fonts/font = SubResource( 4 )
+text = "You 
+Failed"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 761.0
+margin_top = 671.0
+margin_right = 1181.0
+margin_bottom = 746.0
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 6 )
+text = "PLAY AGAIN"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
